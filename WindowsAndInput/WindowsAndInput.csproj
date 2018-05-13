@@ -4,18 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{350AFE52-8B4A-419D-80D0-8B67C8E213E4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TetrisEngine</RootNamespace>
-    <AssemblyName>TetrisEngine</AssemblyName>
+    <ProjectGuid>{DEEF16CD-49A2-4F7F-9C1E-83745CF03CF7}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>WindowsAndInput</RootNamespace>
+    <AssemblyName>WindowsAndInput</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,16 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,23 +47,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KeyLayouts\IKeyLayout.cs" />
-    <Compile Include="KeyLayouts\KeyLayouts.cs" />
-    <Compile Include="KeyLayouts\KeyLayoutSimple.cs" />
-    <Compile Include="MainClass.cs" />
-    <Compile Include="ShapeGenerator\AllShapesGenerator.cs" />
-    <Compile Include="ShapeGenerator\AllShapesGeneratorWithPrediction.cs" />
-    <Compile Include="ShapeGenerator\IShapeGenerator.cs" />
-    <Compile Include="ShapeGenerator\OneTypeGenerator.cs" />
-    <Compile Include="Shape\CantFitInException.cs" />
-    <Compile Include="Shape\Rotation.cs" />
-    <Compile Include="Shape\Shape.cs" />
-    <Compile Include="Shape\ShapeEnumeretaor.cs" />
-    <Compile Include="Shape\Shapes.cs" />
-    <Compile Include="Shape\ShapeVisual.cs" />
-    <Compile Include="XY\Coordinates.cs" />
-    <Compile Include="SinglePlayerNoSpeeding.cs" />
-    <Compile Include="PredictionStackPanel.cs" />
+    <Compile Include="GeneralWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IWindowSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -83,19 +66,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ScoreCounter.cs" />
-    <Compile Include="ScoreStackPanel.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="XY\Size.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_EventAndDelegates.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_Lines.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_PublicMethods.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_ShapeHandling.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_SpriteHandling.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_Timer.cs" />
-    <Compile Include="XY\XY.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -104,12 +74,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WindowsAndInput\WindowsAndInput.csproj">
-      <Project>{DEEF16CD-49A2-4F7F-9C1E-83745CF03CF7}</Project>
-      <Name>WindowsAndInput</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

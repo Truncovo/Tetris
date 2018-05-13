@@ -26,7 +26,6 @@ namespace TetrisEngine
             positionGrid.GameOver += OnGameOver;
             //subscibe event when score counter need to be reseted
             positionGrid.NewGameStarted += OnNewGameStarted;
-
         }
 
         private void OnGameOver(object source)
