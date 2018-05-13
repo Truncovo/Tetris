@@ -50,24 +50,19 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ShapeGenerator\AllShapesGenerator.cs" />
+    <Compile Include="ShapeGenerator\AllShapesGeneratorWithPrediction.cs" />
+    <Compile Include="ShapeGenerator\IShapeGenerator.cs" />
+    <Compile Include="ShapeGenerator\OneTypeGenerator.cs" />
+    <Compile Include="Shape\CantFitInException.cs" />
+    <Compile Include="Shape\Rotation.cs" />
+    <Compile Include="Shape\Shape.cs" />
+    <Compile Include="Shape\ShapeEnumeretaor.cs" />
+    <Compile Include="Shape\Shapes.cs" />
+    <Compile Include="Shape\ShapeVisual.cs" />
+    <Compile Include="XY\Coordinates.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="PredictionStackPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,6 +76,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScoreCounter.cs" />
+    <Compile Include="ScoreStackPanel.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="XY\Size.cs" />
+    <Compile Include="Sprite.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_EventAndDelegates.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_Lines.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_PublicMethods.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_ShapeHandling.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_SpriteHandling.cs" />
+    <Compile Include="TetrisGrid\TetrisGrid_Timer.cs" />
+    <Compile Include="XY\XY.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,8 +98,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
