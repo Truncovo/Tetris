@@ -6,12 +6,19 @@ namespace TetrisEngine
     {
         private IShapeGeneratorWithPrediction _shapeGenerator;
 
-        public bool IsPredicting { get; private set; }
+        //public bool IsPredicting { get; private set; }
 
         public PredictionStackPanel(TetrisGrid positionGrid)
         {
             SetShapeGenerator(positionGrid);
             positionGrid.ShapeGeneratorChanged += OnShapeGeneratorChanged;
+            OnShapeGeneratorPoped(null);
+        }
+
+        public PredictionStackPanel(IShapeGeneratorWithPrediction sapeGenerator)
+        {
+            _shapeGenerator = sapeGenerator;
+            _shapeGenerator.ShapePoped += OnShapeGeneratorPoped;
             OnShapeGeneratorPoped(null);
         }
 
@@ -31,13 +38,7 @@ namespace TetrisEngine
             //get predicting shape generator 
             _shapeGenerator = positionGrid.ShapeGenerator as IShapeGeneratorWithPrediction;
 
-            //set predicting bool
-            if (_shapeGenerator == null)
-            { 
-                IsPredicting = false;
-                return;
-            }
-            IsPredicting = true;
+          
 
             //subrscibe event when shape is generated
             _shapeGenerator.ShapePoped += OnShapeGeneratorPoped;

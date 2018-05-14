@@ -53,10 +53,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameModes\MultiPlayer.cs" />
     <Compile Include="KeyLayouts\IKeyLayout.cs" />
     <Compile Include="KeyLayouts\KeyLayouts.cs" />
     <Compile Include="KeyLayouts\KeyLayoutSimple.cs" />
+    <Compile Include="LvlPicker\LvlItem.cs" />
+    <Compile Include="LvlPicker\LvlItemVisaul.cs" />
+    <Compile Include="LvlPicker\PickLvlControl.cs" />
     <Compile Include="MainClass.cs" />
+    <Compile Include="GameModes\PickLvl.cs" />
     <Compile Include="ShapeGenerator\AllShapesGenerator.cs" />
     <Compile Include="ShapeGenerator\AllShapesGeneratorWithPrediction.cs" />
     <Compile Include="ShapeGenerator\IShapeGenerator.cs" />
@@ -68,7 +73,7 @@
     <Compile Include="Shape\Shapes.cs" />
     <Compile Include="Shape\ShapeVisual.cs" />
     <Compile Include="XY\Coordinates.cs" />
-    <Compile Include="SinglePlayerNoSpeeding.cs" />
+    <Compile Include="GameModes\SinglePlayerNoSpeeding.cs" />
     <Compile Include="PredictionStackPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

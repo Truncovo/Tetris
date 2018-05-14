@@ -8,7 +8,7 @@ namespace TetrisEngine
         [STAThread]
         public static void Main()
         {
-            GeneralWindow.Get.WindowSetting = new SinglePlayerNoSpeeding();
+            GeneralWindow.Get.WindowSetting = new PickLvl();
             GeneralWindow.Get.Run();
         }
     }

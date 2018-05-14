@@ -10,6 +10,7 @@ namespace TetrisEngine
     {
         private TetrisGrid _tetrisGrid;
         private IKeyLayout _keyControl;
+
         public void SetWindow(GeneralWindow window)
         {
             //window settings
@@ -34,7 +35,7 @@ namespace TetrisEngine
             stack.Children.Add(new ScoreStackPanel(new ScoreCounter(_tetrisGrid)));
 
             //key control
-            _keyControl = KeyLayouts.LeftSideOfKeyboardLayout;
+            _keyControl = KeyLayouts.SinglePlayerLayout;
         }
 
         public void ProcesKeyDown(KeyEventArgs e)
@@ -47,8 +48,7 @@ namespace TetrisEngine
                 e.Handled = true;
                 return;
             }
-            _keyControl.ProcesKey(_tetrisGrid,e);
-           
+            _keyControl.ProcesKey(_tetrisGrid, e);
         }
 
         public void ProcesMouseDown(MouseButtonEventArgs e)
