@@ -1,14 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using TetrisEngine;
-using Settings = TetrisEngine.Settings;
 
 namespace TetrisEngine
 {
-    public class ShapeVisual: Grid
+    public class ShapeFE: Grid
     {
         public Shape Shape { get; }  
-        public ShapeVisual(Shape shape)
+        public ShapeFE(Shape shape)
         {
 
             this.Margin = new Thickness(10);
@@ -16,14 +14,14 @@ namespace TetrisEngine
             Shape = shape;
 
             //set rows
-            for (int x = 0; x < Shape.Size.X; x++)
+            for (int x = 0; x < 3; x++)
                 this.RowDefinitions.Add(new RowDefinition
                 {
                     Height = new GridLength(Sprite.Size, GridUnitType.Pixel)
                 });
 
             //set columns
-            for (int y = 0; y < Shape.Size.Y; y++)
+            for (int y = 0; y < 4; y++)
                 this.ColumnDefinitions.Add(new ColumnDefinition
                 {
                     Width = new GridLength(Sprite.Size, GridUnitType.Pixel)

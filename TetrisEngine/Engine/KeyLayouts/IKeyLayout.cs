@@ -4,6 +4,6 @@ namespace TetrisEngine
 {
     public interface IKeyLayout
     {
-        void ProcesKey(TetrisGrid tetrisGrid,KeyEventArgs e);
+        void ProcesKey(TetrisFE tetrisGrid,KeyEventArgs e);
     }
 }

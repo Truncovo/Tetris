@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid : Grid
+    public partial class TetrisFE : Grid
     {
         private Sprite[,] _spiteArray;
         public Size Size { get; }
@@ -50,7 +50,7 @@ namespace TetrisEngine
         }
 
         //konstruktor 
-        public TetrisGrid(Size size, IShapeGenerator shapeGenerator)
+        public TetrisFE(Size size, IShapeGenerator shapeGenerator)
         {
             Size = size;
             ShapeGenerator = shapeGenerator;

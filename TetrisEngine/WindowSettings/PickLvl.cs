@@ -7,7 +7,7 @@ namespace TetrisEngine
     {
         public void SetWindow(GeneralWindow window)
         {
-            var pickLvl = new PickLvlControl();
+            var pickLvl = new PickLvlFE();
             window.Content = pickLvl;
             pickLvl.AddLvlType(new LvlItem(new SinglePlayerNoSpeeding(), "Single Player"));
             pickLvl.AddLvlType(new LvlItem(new MultiPlayer(), "Multiplayer"));

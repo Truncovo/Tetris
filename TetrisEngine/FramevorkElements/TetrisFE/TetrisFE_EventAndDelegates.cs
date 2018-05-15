@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid
+    public partial class TetrisFE
     {
         public delegate void PositionGridEventHandler(object source);
 
@@ -20,13 +20,11 @@ namespace TetrisEngine
 
         protected virtual void OnNewShapeGenerated()
         {
-            Console.WriteLine("Shape generated");
             NewShapeGenerated?.Invoke(this);
         }
 
         protected virtual void OnGameOver()
         {
-            Console.WriteLine("Game Over");
             Pause();
             this.Background = _gameOverBgBrush;
             GameOver?.Invoke(this);
@@ -34,31 +32,26 @@ namespace TetrisEngine
 
         protected virtual void OnLineCleared()
         {
-            Console.WriteLine("Line cleared");
             LineCleared?.Invoke(this);
         }
 
         protected virtual void OnShapeTickDown()
         {
-            Console.WriteLine("Shape moved down");
             ShapeTickDown?.Invoke(this);
         }
 
         protected virtual void OnCantRotate()
         {
-            Console.WriteLine("Cant rotate");
             CantRotate?.Invoke(this);
         }
 
         protected virtual void OnCantMoveLeftOrRight()
         {
-            Console.WriteLine("Cant move left or right");
             CantMoveLeftOrRight?.Invoke(this);
         }
 
         protected virtual void OnShapeLanded()
         {
-            Console.WriteLine("Shape landed");
             SplitActiveShape();
             CheckAndDeleteAllLines();
             ShapeLanded?.Invoke(this);  

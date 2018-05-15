@@ -2,7 +2,7 @@ using System;
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid
+    public partial class TetrisFE
     {
         private void CheckAndDeleteAllLines()
         {
@@ -23,7 +23,6 @@ namespace TetrisEngine
 
         private void ClearLine(int line)
         {
-            Console.WriteLine("CLEARING: " + line);
             for (int y = 0; y < Size.Y; y++)
                 DeleteSprite(new Coordinates(line, y));
 
@@ -31,7 +30,6 @@ namespace TetrisEngine
 
             for (int MovingLine = line - 1; MovingLine >= 0; --MovingLine)
             {
-                Console.WriteLine("Line" + line);
                 MoveLineOneDown(MovingLine);
             }
         }

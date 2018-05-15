@@ -17,7 +17,7 @@ namespace TetrisEngine
         }
 
         
-        public ScoreCounter(TetrisGrid positionGrid)
+        public ScoreCounter(TetrisFE positionGrid)
         {
             //subscibe events witch will afect score
             positionGrid.LineCleared += OnLineCleared;
@@ -45,7 +45,7 @@ namespace TetrisEngine
 
         private void OnLineCleared(object source)
         {
-            Score += (source as TetrisGrid).Size.Y * 10;
+            Score += (source as TetrisFE).Size.Y * 10;
         }
 
 

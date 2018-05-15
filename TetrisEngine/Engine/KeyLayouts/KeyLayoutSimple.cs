@@ -68,7 +68,7 @@ namespace TetrisEngine
 
 
 
-        public void ProcesKey(TetrisGrid tetrisGrid, KeyEventArgs e)
+        public void ProcesKey(TetrisFE tetrisGrid, KeyEventArgs e)
         {
             e.Handled = true;
             if (e.Key == MoveRight)

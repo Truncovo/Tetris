@@ -14,6 +14,8 @@ namespace TetrisEngine
         //create empty shape
         public Shape(int i)
         {
+            if (i > 4)
+                throw new ArgumentOutOfRangeException("size of shape bigger than 4"); //TODO manage exceptions
             Map = new bool[i,i];
             Size = new Size(i,i);
         }

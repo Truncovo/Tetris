@@ -5,15 +5,15 @@ using WindowsAndInput;
 
 namespace TetrisEngine
 {
-    public class PickLvlControl : StackPanel
+    public class PickLvlFE : StackPanel
     {
-        public PickLvlControl()
+        public PickLvlFE()
         {
         }
 
-        public PickLvlControl AddLvlType(LvlItem item)
+        public PickLvlFE AddLvlType(LvlItem item)
         {
-            var lvlItem = new LvlItemVisaul(item);
+            var lvlItem = new LvlButtonFE(item);
             Children.Add(lvlItem);
             lvlItem.Click += OnLevelSelected;
             return this;
@@ -21,7 +21,7 @@ namespace TetrisEngine
 
         private void OnLevelSelected(object sender, RoutedEventArgs e)
         {
-            LvlItemVisaul button = sender as LvlItemVisaul;
+            LvlButtonFE button = sender as LvlButtonFE;
             GeneralWindow.Get.WindowSetting = button.LvlItem.WindowSetting;
         }
     }

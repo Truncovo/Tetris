@@ -8,7 +8,7 @@ namespace TetrisEngine
 {
     class SinglePlayerNoSpeeding : IWindowSetting
     {
-        private TetrisGrid _tetrisGrid;
+        private TetrisFE _tetrisGrid;
         private IKeyLayout _keyControl;
 
         public void SetWindow(GeneralWindow window)
@@ -26,13 +26,13 @@ namespace TetrisEngine
             window.Content = stack;
 
             //insert tetris play area in grid
-            _tetrisGrid = new TetrisGrid(new Size(16, 8), new AllShapesGeneratorWithPrediction(3));
+            _tetrisGrid = new TetrisFE(new Size(16, 8), new AllShapesGeneratorWithPrediction(3));
             stack.Children.Add(_tetrisGrid);
             _tetrisGrid.Play();
 
             //insert preditction panel and score panel
-            stack.Children.Add(new PredictionStackPanel(_tetrisGrid));
-            stack.Children.Add(new ScoreStackPanel(new ScoreCounter(_tetrisGrid)));
+            stack.Children.Add(new PredictionFE(_tetrisGrid));
+            stack.Children.Add(new ScoreHistoryFe(new ScoreCounter(_tetrisGrid)));
 
             //key control
             _keyControl = KeyLayouts.SinglePlayerLayout;

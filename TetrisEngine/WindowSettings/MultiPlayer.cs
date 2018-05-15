@@ -8,8 +8,8 @@ namespace TetrisEngine
 {
     class MultiPlayer : IWindowSetting
     {
-        private TetrisGrid _tetrisFirstPlayer;
-        private TetrisGrid _tetrisSecondPlayer;
+        private TetrisFE _tetrisFirstPlayer;
+        private TetrisFE _tetrisSecondPlayer;
 
         private IKeyLayout _keysFirstPlayer;
         private IKeyLayout _keysSecondPlayer;
@@ -31,12 +31,12 @@ namespace TetrisEngine
             var shapeGenerator = new AllShapesGeneratorWithPrediction(3);
 
             //Creating GameArea for both players
-            _tetrisFirstPlayer = new TetrisGrid(new Size(16, 8), shapeGenerator);
-            _tetrisSecondPlayer = new TetrisGrid(new Size(16, 8), shapeGenerator);
+            _tetrisFirstPlayer = new TetrisFE(new Size(16, 8), shapeGenerator);
+            _tetrisSecondPlayer = new TetrisFE(new Size(16, 8), shapeGenerator);
 
             //creating score counter for both players
-            var scoreFirstPlayer = new ScoreShower(new ScoreCounter(_tetrisFirstPlayer));
-            var scoreSecondPlayer = new ScoreShower(new ScoreCounter(_tetrisSecondPlayer));
+            var scoreFirstPlayer = new ScoreFE(new ScoreCounter(_tetrisFirstPlayer));
+            var scoreSecondPlayer = new ScoreFE(new ScoreCounter(_tetrisSecondPlayer));
 
             //arange screen
            
@@ -57,7 +57,7 @@ namespace TetrisEngine
             window.Content = mainStack;
 
             mainStack.Children.Add(firstPlayerStack);
-            mainStack.Children.Add(new PredictionStackPanel(shapeGenerator));
+            mainStack.Children.Add(new PredictionFE(shapeGenerator));
             mainStack.Children.Add(secondPlayerStack);
 
             //creating keycontrol for both players TODO make user settings for this

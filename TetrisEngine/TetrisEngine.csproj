@@ -53,28 +53,30 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameModes\MultiPlayer.cs" />
-    <Compile Include="KeyLayouts\IKeyLayout.cs" />
-    <Compile Include="KeyLayouts\KeyLayouts.cs" />
-    <Compile Include="KeyLayouts\KeyLayoutSimple.cs" />
-    <Compile Include="LvlPicker\LvlItem.cs" />
-    <Compile Include="LvlPicker\LvlItemVisaul.cs" />
-    <Compile Include="LvlPicker\PickLvlControl.cs" />
+    <Compile Include="WindowSettings\MultiPlayer.cs" />
+    <Compile Include="Engine\KeyLayouts\IKeyLayout.cs" />
+    <Compile Include="Engine\KeyLayouts\KeyLayouts.cs" />
+    <Compile Include="Engine\KeyLayouts\KeyLayoutSimple.cs" />
+    <Compile Include="FramevorkElements\PickLvlFE\LvlItem.cs" />
+    <Compile Include="FramevorkElements\LvlButtonFE.cs" />
+    <Compile Include="FramevorkElements\PickLvlFE\PickLvlFE.cs" />
     <Compile Include="MainClass.cs" />
-    <Compile Include="GameModes\PickLvl.cs" />
-    <Compile Include="ShapeGenerator\AllShapesGenerator.cs" />
-    <Compile Include="ShapeGenerator\AllShapesGeneratorWithPrediction.cs" />
-    <Compile Include="ShapeGenerator\IShapeGenerator.cs" />
-    <Compile Include="ShapeGenerator\OneTypeGenerator.cs" />
-    <Compile Include="Shape\CantFitInException.cs" />
-    <Compile Include="Shape\Rotation.cs" />
-    <Compile Include="Shape\Shape.cs" />
-    <Compile Include="Shape\ShapeEnumeretaor.cs" />
-    <Compile Include="Shape\Shapes.cs" />
-    <Compile Include="Shape\ShapeVisual.cs" />
-    <Compile Include="XY\Coordinates.cs" />
-    <Compile Include="GameModes\SinglePlayerNoSpeeding.cs" />
-    <Compile Include="PredictionStackPanel.cs" />
+    <Compile Include="WindowSettings\PickLvl.cs" />
+    <Compile Include="FramevorkElements\ScoreFE.cs" />
+    <Compile Include="Engine\ShapeGenerators\AllShapesGenerator.cs" />
+    <Compile Include="Engine\ShapeGenerators\AllShapesGeneratorWithPrediction.cs" />
+    <Compile Include="Engine\ShapeGenerators\IShapeGenerator.cs" />
+    <Compile Include="Engine\ShapeGenerators\IShapeGeneratorWithPrediction.cs" />
+    <Compile Include="Engine\ShapeGenerators\OneTypeGenerator.cs" />
+    <Compile Include="Engine\Shape\CantFitInException.cs" />
+    <Compile Include="Engine\Shape\Rotation.cs" />
+    <Compile Include="Engine\Shape\Shape.cs" />
+    <Compile Include="Engine\Shape\ShapeEnumeretaor.cs" />
+    <Compile Include="Engine\Shape\Shapes.cs" />
+    <Compile Include="FramevorkElements\ShapeFE.cs" />
+    <Compile Include="Engine\XY\Coordinates.cs" />
+    <Compile Include="WindowSettings\SinglePlayerNoSpeeding.cs" />
+    <Compile Include="FramevorkElements\PredictionFE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,19 +90,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ScoreCounter.cs" />
-    <Compile Include="ScoreStackPanel.cs" />
+    <Compile Include="Engine\ScoreCounter.cs" />
+    <Compile Include="FramevorkElements\ScoreHistoryFE.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="XY\Size.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_EventAndDelegates.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_Lines.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_PublicMethods.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_ShapeHandling.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_SpriteHandling.cs" />
-    <Compile Include="TetrisGrid\TetrisGrid_Timer.cs" />
-    <Compile Include="XY\XY.cs" />
+    <Compile Include="Engine\XY\Size.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\Sprites\Sprite.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_EventAndDelegates.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_Lines.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_PublicMethods.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_ShapeHandling.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_SpriteHandling.cs" />
+    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_Timer.cs" />
+    <Compile Include="Engine\XY\XY.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -116,5 +118,6 @@
       <Name>WindowsAndInput</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

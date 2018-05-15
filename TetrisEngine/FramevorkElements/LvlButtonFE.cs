@@ -3,10 +3,10 @@ using System.Windows.Controls;
 
 namespace TetrisEngine
 {
-    public class LvlItemVisaul : Button
+    public class LvlButtonFE : Button
     {
         public LvlItem LvlItem { get; }
-        public LvlItemVisaul(LvlItem item)
+        public LvlButtonFE(LvlItem item)
         {
             LvlItem = item;
             Content = LvlItem.Title;

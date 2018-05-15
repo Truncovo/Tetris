@@ -27,21 +27,5 @@ namespace TetrisEngine
             rect.Height = Size;
             this.Children.Add(rect);
         }
-
-        //private delegate void OnStaticSizeChangedEventHandler();
-        //private static event OnStaticSizeChangedEventHandler StaticSizeChanged;
-
-        //static Sprite()
-        //{
-
-        //}
-        //private void StaticChanged()
-        //{
-          
-        //}
-        //private static void OnStaticSizeChanged()
-        //{
-        //    StaticSizeChanged?.Invoke();
-        //}
     }
 }

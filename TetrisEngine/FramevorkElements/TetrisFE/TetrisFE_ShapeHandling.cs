@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid
+    public partial class TetrisFE
     {
         //place actual shape on screen - will throw Exception when shape cant fit in
         private void ShowActualShape()

@@ -2,7 +2,7 @@
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid
+    public partial class TetrisFE
     {
         //insert sprite to position, if position is full, will throw Exception
         private void InsertSprite(Sprite sprite, Coordinates coord)

@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace TetrisEngine
 {
-    public partial class TetrisGrid
+    public partial class TetrisFE
     {
        
 
