@@ -21,16 +21,40 @@ namespace TruncuvTetris.UnitTests.Engine.KeyLayouts
         {
             _tetrisControl = new Mock<ITetrisControl>();
 
-            _keyLayout = new KeyLayoutSimple
+            _keyLayout = new KeyLayoutSimple(new Key[6]
             {
-                DropBot = Key.Space,
-                MoveDown = Key.Down,
-                MoveLeft = Key.Left,
-                MoveRight = Key.Right,
-                RotateLeft = Key.A,
-                RotateRight = Key.D
-            };
+                Key.Left,
+                Key.Right,
+                Key.Down,
+                Key.A,
+                Key.D,
+                Key.Space
+            });
         }
+        //----------------------------------------------------------------------------------------------------
+        [Test]
+        public void SetKey_SettingExistingKey_ThrowException()
+        {
+            Assert.That(()=> _keyLayout.SetKey(Key.A, KeyLayoutSimple.Commands.DropToBot),Throws.Exception);
+        }
+
+        [Test]
+        public void SetKey_SettNotExistingKey_ChangedKey()
+        {
+            _keyLayout.SetKey(Key.Q, KeyLayoutSimple.Commands.DropToBot);
+
+            Assert.That(_keyLayout.ControlArray[(int)KeyLayoutSimple.Commands.DropToBot],Is.EqualTo(Key.Q));
+        }
+
+        [Test]
+        public void SetKey_SettKeyToSameKey_ArrayIsSame()
+        {
+            var expected = _keyLayout.ControlArray.Clone();
+            _keyLayout.SetKey(Key.Space, KeyLayoutSimple.Commands.DropToBot);
+
+            Assert.That(_keyLayout.ControlArray,Is.EqualTo(expected));
+        }
+        //----------------------------------------------------------------------------------------------------
 
         [Test, RequiresThread(ApartmentState.STA)]
         public void ProcessKey_PressedSpace_CalledDropToBot()
@@ -38,6 +62,15 @@ namespace TruncuvTetris.UnitTests.Engine.KeyLayouts
             _keyLayout.ProcessKey(_tetrisControl.Object, GetMockKeyEventArgs(Key.Space));
 
             _tetrisControl.Verify(tc => tc.DropToBot());
+            _tetrisControl.VerifyNoOtherCalls();
+        }
+
+        [Test, RequiresThread(ApartmentState.STA)]
+        public void ProcessKey_PressedLeft_CalledMoveLeft()
+        {
+            _keyLayout.ProcessKey(_tetrisControl.Object, GetMockKeyEventArgs(Key.Left));
+
+            _tetrisControl.Verify(tc => tc.MoveLeft());
             _tetrisControl.VerifyNoOtherCalls();
         }
 
@@ -50,9 +83,36 @@ namespace TruncuvTetris.UnitTests.Engine.KeyLayouts
             _tetrisControl.VerifyNoOtherCalls();
         }
 
+        [Test, RequiresThread(ApartmentState.STA)]
+        public void ProcessKey_PressedA_CalledRotateLeft()
+        {
+            _keyLayout.ProcessKey(_tetrisControl.Object, GetMockKeyEventArgs(Key.A));
+
+            _tetrisControl.Verify(tc => tc.RotateLeft());
+            _tetrisControl.VerifyNoOtherCalls();
+        }
+
+        [Test, RequiresThread(ApartmentState.STA)]
+        public void ProcessKey_PressedD_CalledRotatedRight()
+        {
+            _keyLayout.ProcessKey(_tetrisControl.Object, GetMockKeyEventArgs(Key.D));
+
+            _tetrisControl.Verify(tc => tc.RotateRight());
+            _tetrisControl.VerifyNoOtherCalls();
+        }
+
+        [Test, RequiresThread(ApartmentState.STA)]
+        public void ProcessKey_PressedDown_CalledMoveDown()
+        {
+            _keyLayout.ProcessKey(_tetrisControl.Object, GetMockKeyEventArgs(Key.Down));
+
+            _tetrisControl.Verify(tc => tc.MoveDown());
+            _tetrisControl.VerifyNoOtherCalls();
+        }
+        //----------------------------------------------------------------------------------------------------
         private KeyEventArgs GetMockKeyEventArgs(Key key)
         {
-            var keyEventArgs = new KeyEventArgs(Keyboard.PrimaryDevice, new TestPresentationSource(), 1, key)
+            var keyEventArgs = new KeyEventArgs(Keyboard.PrimaryDevice, new MockPresentationSource(), 1, key)
             {
                 RoutedEvent = Keyboard.KeyDownEvent,
                 Handled = false,
@@ -60,7 +120,7 @@ namespace TruncuvTetris.UnitTests.Engine.KeyLayouts
             return keyEventArgs;
         }
 
-        private class TestPresentationSource : PresentationSource
+        private class MockPresentationSource : PresentationSource
         {
             protected override CompositionTarget GetCompositionTargetCore()
             {

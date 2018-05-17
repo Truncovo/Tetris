@@ -5,32 +5,36 @@ namespace TetrisEngine
     public static class KeyLayouts
     {
         public static IKeyLayout SinglePlayerLayout=> new KeyLayoutSimple
+            (
+            new Key[6]
+            {
+                Key.Left,
+                Key.Right,
+                Key.Down,
+                Key.A,
+                Key.D,
+                Key.Space
+            }
+            );
+        public static IKeyLayout NumPadArowsLayout=> new KeyLayoutSimple(new Key[6]
         {
-            DropBot = Key.Space,
-            MoveDown = Key.Down,
-            MoveLeft = Key.Left,
-            MoveRight = Key.Right,
-            RotateLeft = Key.A,
-            RotateRight = Key.D
-        };
-        public static IKeyLayout NumPadArowsLayout=> new KeyLayoutSimple
+            Key.Left,
+            Key.Right,
+            Key.Down,
+            Key.NumPad7,
+            Key.NumPad9,
+            Key.NumPad0,
+
+        });
+        public static IKeyLayout LeftSideOfKeyboardLayout => new KeyLayoutSimple(new Key[6]
         {
-            DropBot = Key.NumPad0,
-            MoveDown = Key.Down,
-            MoveLeft = Key.Left,
-            MoveRight = Key.Right,
-            RotateLeft = Key.NumPad7,
-            RotateRight = Key.NumPad9
-        };
-        public static IKeyLayout LeftSideOfKeyboardLayout => new KeyLayoutSimple
-        {
-            DropBot = Key.Space,
-            MoveDown = Key.S,
-            MoveLeft = Key.A,
-            MoveRight = Key.D,
-            RotateLeft = Key.C,
-            RotateRight = Key.B
-        };
+            Key.A,
+            Key.D,
+            Key.S,
+            Key.C,
+            Key.B,
+            Key.Space,
+        });
 
     }
 }
