@@ -3,8 +3,6 @@ using System.Windows.Input;
 
 namespace WindowsAndInput
 {
-
-
     public class GeneralWindow : Window
     {
         private static GeneralWindow _singleton;

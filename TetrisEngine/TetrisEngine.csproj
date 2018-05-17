@@ -53,16 +53,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrameworkElements\TetrisFE\ITetrisControl.cs" />
     <Compile Include="WindowSettings\MultiPlayer.cs" />
     <Compile Include="Engine\KeyLayouts\IKeyLayout.cs" />
     <Compile Include="Engine\KeyLayouts\KeyLayouts.cs" />
     <Compile Include="Engine\KeyLayouts\KeyLayoutSimple.cs" />
-    <Compile Include="FramevorkElements\PickLvlFE\LvlItem.cs" />
-    <Compile Include="FramevorkElements\LvlButtonFE.cs" />
-    <Compile Include="FramevorkElements\PickLvlFE\PickLvlFE.cs" />
+    <Compile Include="FrameworkElements\PickLvlFE\LvlItem.cs" />
+    <Compile Include="FrameworkElements\LvlButtonFE.cs" />
+    <Compile Include="FrameworkElements\PickLvlFE\PickLvlFE.cs" />
     <Compile Include="MainClass.cs" />
     <Compile Include="WindowSettings\PickLvl.cs" />
-    <Compile Include="FramevorkElements\ScoreFE.cs" />
+    <Compile Include="FrameworkElements\ScoreFE.cs" />
     <Compile Include="Engine\ShapeGenerators\AllShapesGenerator.cs" />
     <Compile Include="Engine\ShapeGenerators\AllShapesGeneratorWithPrediction.cs" />
     <Compile Include="Engine\ShapeGenerators\IShapeGenerator.cs" />
@@ -73,10 +74,10 @@
     <Compile Include="Engine\Shape\Shape.cs" />
     <Compile Include="Engine\Shape\ShapeEnumeretaor.cs" />
     <Compile Include="Engine\Shape\Shapes.cs" />
-    <Compile Include="FramevorkElements\ShapeFE.cs" />
+    <Compile Include="FrameworkElements\ShapeFE.cs" />
     <Compile Include="Engine\XY\Coordinates.cs" />
     <Compile Include="WindowSettings\SinglePlayerNoSpeeding.cs" />
-    <Compile Include="FramevorkElements\PredictionFE.cs" />
+    <Compile Include="FrameworkElements\PredictionFE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,17 +92,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Engine\ScoreCounter.cs" />
-    <Compile Include="FramevorkElements\ScoreHistoryFE.cs" />
+    <Compile Include="FrameworkElements\ScoreHistoryFE.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Engine\XY\Size.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\Sprites\Sprite.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_EventAndDelegates.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_Lines.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_PublicMethods.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_ShapeHandling.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_SpriteHandling.cs" />
-    <Compile Include="FramevorkElements\TetrisFE\TetrisFE_Timer.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\Sprites\Sprite.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_EventAndDelegates.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_Lines.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_PublicMethods.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_ShapeHandling.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_SpriteHandling.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\TetrisFE_Timer.cs" />
     <Compile Include="Engine\XY\XY.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

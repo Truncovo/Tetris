@@ -84,8 +84,8 @@ namespace TetrisEngine
                 e.Handled = true;
                 return;
             }
-            _keysFirstPlayer.ProcesKey(_tetrisFirstPlayer, e);
-            _keysSecondPlayer.ProcesKey(_tetrisSecondPlayer,e);
+            _keysFirstPlayer.ProcessKey(_tetrisFirstPlayer, e);
+            _keysSecondPlayer.ProcessKey(_tetrisSecondPlayer,e);
         }
 
         public void ProcesMouseDown(MouseButtonEventArgs e)

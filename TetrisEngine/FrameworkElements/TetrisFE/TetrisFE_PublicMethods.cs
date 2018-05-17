@@ -81,7 +81,7 @@ namespace TetrisEngine
             Rotate(Rotation.Left);
         }
 
-        private void Rotate(Rotation rotation)
+        public void Rotate(Rotation rotation)
         {
 
             try

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Input;
 
 namespace TetrisEngine
@@ -65,10 +66,11 @@ namespace TetrisEngine
                 _dropBot = value;
             }
         }
+        
+        public Key[] ControlArray { get; set; } = new Key[6];
 
 
-
-        public void ProcesKey(TetrisFE tetrisGrid, KeyEventArgs e)
+        public void ProcessKey(ITetrisControl tetrisGrid, KeyEventArgs e)
         {
             e.Handled = true;
             if (e.Key == MoveRight)
@@ -89,13 +91,14 @@ namespace TetrisEngine
 
         private void CheckIfSettingsIsUnique(Key key)
         {
+            //var isUnique = ControlArray.Distinct().Count() == ControlArray.Length;
             //TODO learn with linq
             foreach (var property in typeof(KeyLayoutSimple).GetProperties())
             {
                 if(property.PropertyType == typeof(Key) && 
                     property.GetValue(this) != null &&
                     (Key)property.GetValue(this) == key)
-                    throw new Exception("aa");
+                    throw new Exception("aa"); //TODO manage exceptions
             }
             
         }

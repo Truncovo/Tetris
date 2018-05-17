@@ -48,7 +48,7 @@ namespace TetrisEngine
                 e.Handled = true;
                 return;
             }
-            _keyControl.ProcesKey(_tetrisGrid, e);
+            _keyControl.ProcessKey(_tetrisGrid, e);
         }
 
         public void ProcesMouseDown(MouseButtonEventArgs e)

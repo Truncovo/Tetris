@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace TetrisEngine
 {
-    public partial class TetrisFE : Grid
+    public partial class TetrisFE : Grid, ITetrisControl
     {
         private Sprite[,] _spiteArray;
         public Size Size { get; }
