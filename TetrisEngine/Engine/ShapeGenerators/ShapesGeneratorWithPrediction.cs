@@ -2,11 +2,18 @@
 
 namespace TetrisEngine
 {
-    public class AllShapesGeneratorWithPrediction : AllShapesGenerator, IShapeGeneratorWithPrediction
+    public class ShapesGeneratorWithPrediction : ShapesGenerator, IShapeGeneratorWithPrediction
     {
         public int PredictCount { get; }
         private readonly Queue<Shape> _shapeQueue;
-        public AllShapesGeneratorWithPrediction(int predictCount) 
+        public ShapesGeneratorWithPrediction(int predictCount,params Shape[] shapes) : base(shapes) 
+        {
+            PredictCount = predictCount;
+            _shapeQueue = new Queue<Shape>();
+            ResetQueue();
+        }
+
+        public ShapesGeneratorWithPrediction(int predictCount) : base()
         {
             PredictCount = predictCount;
             _shapeQueue = new Queue<Shape>();
@@ -38,6 +45,7 @@ namespace TetrisEngine
             _shapeQueue.Enqueue(base.GetShape());
             var res = _shapeQueue.Dequeue();
             OnShapePoped(this);
+            OnQueueChanged(this);
             return res;
         }
 

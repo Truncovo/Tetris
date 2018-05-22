@@ -68,9 +68,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\KeyLayouts\KeyLabels.cs" />
+    <Compile Include="Engine\ShapeGenerators\ShapesGeneratorTests.cs" />
+    <Compile Include="Engine\ScoreCounterTests.cs" />
+    <Compile Include="Engine\ShapeGenerators\ShapesGeneratorWithPredictionTests.cs" />
     <Compile Include="Engine\Shape\ShapeTests.cs" />
     <Compile Include="Engine\KeyLayouts\KeyLayoutsSimpleTests.cs" />
+    <Compile Include="Engine\XY\XYTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,19 +3,20 @@ using System.Windows.Media;
 
 namespace TetrisEngine
 {
-    public partial class TetrisFE
-    {
-        public delegate void PositionGridEventHandler(object source);
+    public delegate void TetrisFeEventHandler(object source);
 
-        public event PositionGridEventHandler NewShapeGenerated;
-        public event PositionGridEventHandler GameOver;
-        public event PositionGridEventHandler LineCleared;
-        public event PositionGridEventHandler ShapeTickDown;
-        public event PositionGridEventHandler CantRotate;
-        public event PositionGridEventHandler CantMoveLeftOrRight;
-        public event PositionGridEventHandler ShapeLanded;
-        public event PositionGridEventHandler ShapeGeneratorChanged;
-        public event PositionGridEventHandler NewGameStarted;
+    public partial class TetrisFE: ITetrisFE
+    {
+
+        public event TetrisFeEventHandler NewShapeGenerated;
+        public event TetrisFeEventHandler GameOver;
+        public event TetrisFeEventHandler LineCleared;
+        public event TetrisFeEventHandler ShapeTickDown;
+        public event TetrisFeEventHandler CantRotate;
+        public event TetrisFeEventHandler CantMoveLeftOrRight;
+        public event TetrisFeEventHandler ShapeLanded;
+        public event TetrisFeEventHandler ShapeGeneratorChanged;
+        public event TetrisFeEventHandler NewGameStarted;
 
 
         protected virtual void OnNewShapeGenerated()

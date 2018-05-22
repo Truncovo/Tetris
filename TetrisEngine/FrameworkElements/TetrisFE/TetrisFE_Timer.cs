@@ -3,7 +3,7 @@ using System.Windows.Threading;
 
 namespace TetrisEngine
 {
-    public partial class TetrisFE
+    public partial class TetrisFE 
     {
         public bool Playing { get; private set; }
         public void Play()

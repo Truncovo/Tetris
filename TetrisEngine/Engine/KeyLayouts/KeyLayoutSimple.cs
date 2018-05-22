@@ -37,7 +37,7 @@ namespace TetrisEngine
 
       
 
-        public void ProcessKey(ITetrisControl tetrisGrid, KeyEventArgs e)
+        public void ProcessKey(ITetrisFE tetrisFE, KeyEventArgs e)
         {
             if (!_controlArray.Contains(e.Key))
                 return;
@@ -45,22 +45,22 @@ namespace TetrisEngine
             switch ((Commands)Array.IndexOf(_controlArray, e.Key))
             {
                 case Commands.MoveLeft:
-                    tetrisGrid.MoveLeft();
+                    tetrisFE.MoveLeft();
                     break;
                 case Commands.MoveRight:
-                    tetrisGrid.MoveRight();
+                    tetrisFE.MoveRight();
                     break;
                 case Commands.MoveDown:
-                    tetrisGrid.MoveDown();
+                    tetrisFE.MoveDown();
                     break;
                 case Commands.RotateLeft:
-                    tetrisGrid.RotateLeft();
+                    tetrisFE.RotateLeft();
                     break;
                 case Commands.RotateRight:
-                    tetrisGrid.RotateRight();
+                    tetrisFE.RotateRight();
                     break;
                 case Commands.DropToBot:
-                    tetrisGrid.DropToBot();
+                    tetrisFE.DropToBot();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

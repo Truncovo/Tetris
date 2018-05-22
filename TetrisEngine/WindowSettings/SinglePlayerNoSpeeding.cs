@@ -26,7 +26,7 @@ namespace TetrisEngine
             window.Content = stack;
 
             //insert tetris play area in grid
-            _tetrisGrid = new TetrisFE(new Size(16, 8), new AllShapesGeneratorWithPrediction(3));
+            _tetrisGrid = new TetrisFE(new Size(16, 8), new ShapesGeneratorWithPrediction(3));
             stack.Children.Add(_tetrisGrid);
             _tetrisGrid.Play();
 

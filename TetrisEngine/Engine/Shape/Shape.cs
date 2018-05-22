@@ -9,7 +9,8 @@ namespace TetrisEngine
     {
         public Color Color { get; set; }
         public bool[,] Map { get; }
-        public Size Size { get; }
+
+        public int Size { get; }
 
         //create empty shape
         public Shape(int size)
@@ -17,7 +18,7 @@ namespace TetrisEngine
             if (size > 4 || size < 1)
                 throw new ArgumentOutOfRangeException("size of shape bigger than 4"); //TODO manage exceptions
             Map = new bool[size,size];
-            Size = new Size(size,size);
+            Size = size;
         }
 
         //return Shape copy rotated 90° in direction of parametter rotation
@@ -43,12 +44,12 @@ namespace TetrisEngine
 
         public object Clone()
         {
-            var res = new Shape(Size.X);
+            var res = new Shape(Size);
 
             res.Color = Color;
 
-            for (int x = 0; x < Size.X; x++)
-            for (int y = 0; y < Size.Y; y++)
+            for (int x = 0; x < Size; x++)
+            for (int y = 0; y < Size; y++)
             {
                 res.Map[x, y] = this.Map[x, y];
             }
@@ -59,27 +60,44 @@ namespace TetrisEngine
         //private part
         private Shape GetLeftRotatedCopy()
         {
-            var res = new Shape(Size.X);
+            var res = new Shape(Size);
             res.Color = Color;
-            for (int x = 0; x < Size.X; x++)
-            for (int y = 0; y < Size.Y; y++)
+            for (int x = 0; x < Size; x++)
+            for (int y = 0; y < Size; y++)
             {
-                res.Map[x, y] = this.Map[y, Size.X - 1 - x];
+                res.Map[x, y] = this.Map[y, Size - 1 - x];
             }
             return res;
         }
         private Shape GetRightRotatedCopy()
         {
-            var res = new Shape(Size.X);
+            var res = new Shape(Size);
             res.Color = Color;
 
-            for (int x = 0; x < Size.X; x++)
-            for (int y = 0; y < Size.Y; y++)
+            for (int x = 0; x < Size; x++)
+            for (int y = 0; y < Size; y++)
             {
-                res.Map[x, y] = this.Map[Size.X - y - 1, x];
+                res.Map[x, y] = this.Map[Size - y - 1, x];
             }
             return res;
         }
 
+       
+
+        public override bool Equals(object obj)
+        {
+            var second = obj as Shape;
+            if (second == null)
+                return false;
+            if (Color.Equals(second.Color) && Map.Length == second.Map.Length)
+            { 
+                for (var x = 0; x < Size; x++)
+                for (var y = 0; y < Size; y++)
+                    if (Map[x, y] != second.Map[x, y])
+                            return false;
+                return true;
+            }
+            return false;
+        }
     }
 }

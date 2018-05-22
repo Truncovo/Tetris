@@ -23,7 +23,7 @@ namespace TetrisEngine
             {
                 do
                 {
-                    if (++_x >= _shape.Size.Y)
+                    if (++_x >= _shape.Size)
                     {
                         ++_y;
                         _x = 0;

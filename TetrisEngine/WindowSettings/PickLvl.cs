@@ -11,12 +11,10 @@ namespace TetrisEngine
             window.Content = pickLvl;
             pickLvl.AddLvlType(new LvlItem(new SinglePlayerNoSpeeding(), "Single Player"));
             pickLvl.AddLvlType(new LvlItem(new MultiPlayer(), "Multiplayer"));
-
         }
 
         public void ProcesKeyDown(KeyEventArgs e)
         {
-
         }
 
         public void ProcesMouseDown(MouseButtonEventArgs e)

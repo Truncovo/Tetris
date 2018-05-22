@@ -53,7 +53,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrameworkElements\TetrisFE\ITetrisControl.cs" />
+    <Compile Include="FrameworkElements\TetrisFE\ITetrisFE.cs" />
     <Compile Include="WindowSettings\MultiPlayer.cs" />
     <Compile Include="Engine\KeyLayouts\IKeyLayout.cs" />
     <Compile Include="Engine\KeyLayouts\KeyLayouts.cs" />
@@ -64,8 +64,8 @@
     <Compile Include="MainClass.cs" />
     <Compile Include="WindowSettings\PickLvl.cs" />
     <Compile Include="FrameworkElements\ScoreFE.cs" />
-    <Compile Include="Engine\ShapeGenerators\AllShapesGenerator.cs" />
-    <Compile Include="Engine\ShapeGenerators\AllShapesGeneratorWithPrediction.cs" />
+    <Compile Include="Engine\ShapeGenerators\ShapesGenerator.cs" />
+    <Compile Include="Engine\ShapeGenerators\ShapesGeneratorWithPrediction.cs" />
     <Compile Include="Engine\ShapeGenerators\IShapeGenerator.cs" />
     <Compile Include="Engine\ShapeGenerators\IShapeGeneratorWithPrediction.cs" />
     <Compile Include="Engine\ShapeGenerators\OneTypeGenerator.cs" />

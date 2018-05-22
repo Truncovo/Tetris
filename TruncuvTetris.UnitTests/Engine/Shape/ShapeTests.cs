@@ -133,6 +133,37 @@ namespace TruncuvTetris.UnitTests
             Assert.That(res,Is.EqualTo(GetListOf_shapeTrueCoordinates()));
         }
 
+        [Test]
+        public void Equals_ObjectsAreEqual_ReturnTrue()
+        {
+            _shape = Shapes.GetZ();
+            var secondShape = Shapes.GetZ();
+
+            var res = _shape.Equals(secondShape);
+
+            Assert.IsTrue(res);
+        }
+        [Test]
+        public void Equals_ObjectsAreNotEqualHaveSameSize_ReturnFalse()
+        {
+            _shape = Shapes.GetZ();
+            var secondShape = _shape.GetRotatedCopy(Rotation.Right);
+
+            var res = _shape.Equals(secondShape);
+
+            Assert.IsFalse(res);
+        }
+        [Test]
+        public void Equals_ObjectsAreNotEqual_ReturnFalse()
+        {
+            _shape = Shapes.GetZ();
+            var secondShape = Shapes.Get2x2();
+
+            var res = _shape.Equals(secondShape);
+
+            Assert.IsFalse(res);
+        }
+
         private List<Coordinates> GetListOf_shapeTrueCoordinates()
         {
             return  new List<Coordinates>

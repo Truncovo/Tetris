@@ -7,6 +7,7 @@ namespace TetrisEngine
     public interface IShapeGenerator
     {
         Shape GetShape();
+        int RandomSeed { set; }
     }
 
     

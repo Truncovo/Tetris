@@ -60,7 +60,7 @@ namespace TetrisEngine
         //spawn new shape on top center of screen - if shape cant fit there will throw Exception
         private void SpawnShape(Shape shape)
         {
-            Coordinates spawn = new Coordinates(0, Size.Y / 2 - shape.Size.Y / 2);
+            Coordinates spawn = new Coordinates(0, Size.Y / 2 - shape.Size / 2);
 
             CanFitIn(shape, spawn);
             _activeShape = shape;
@@ -111,7 +111,7 @@ namespace TetrisEngine
         //retured int means, how many sprites is shape map outside spriteArray (to right)
         private int IsShapeBoxOutOfRightBorder()
         {
-            int maxRight = _activeShape.Size.Y + _acticeShapeCoordinates.Y;
+            int maxRight = _activeShape.Size + _acticeShapeCoordinates.Y;
             if (Size.Y < maxRight)
                 return maxRight - Size.Y;
             return 0;

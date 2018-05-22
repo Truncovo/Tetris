@@ -5,8 +5,11 @@ namespace TetrisEngine
     public class ScoreCounter
     {
         private int _score;
+        private ITetrisFE _tetrisFE;
+        public int ScoreUpOnShapeLanded { get; set; } = 3;
+        public int ScoreUpOnSpriteCleared { get; set; } = 10;
 
-        public int Score
+        public int Score    
         {
             get => _score;
             private set
@@ -17,15 +20,17 @@ namespace TetrisEngine
         }
 
         
-        public ScoreCounter(TetrisFE positionGrid)
+        public ScoreCounter(ITetrisFE tetrisFE)
         {
+            _tetrisFE = tetrisFE;
+
             //subscibe events witch will afect score
-            positionGrid.LineCleared += OnLineCleared;
-            positionGrid.ShapeLanded += OnShapeLanded;
+            tetrisFE.LineCleared += OnLineCleared;
+            tetrisFE.ShapeLanded += OnShapeLanded;
             //subrcibe event to invoke own event when game ended
-            positionGrid.GameOver += OnGameOver;
+            tetrisFE.GameOver += OnGameOver;
             //subscibe event when score counter need to be reseted
-            positionGrid.NewGameStarted += OnNewGameStarted;
+            tetrisFE.NewGameStarted += OnNewGameStarted;
         }
 
         private void OnGameOver(object source)
@@ -40,12 +45,13 @@ namespace TetrisEngine
 
         private void OnShapeLanded(object source)
         {
-            Score += 3;
+            Score += ScoreUpOnShapeLanded;
         }
 
         private void OnLineCleared(object source)
         {
-            Score += (source as TetrisFE).Size.Y * 10;
+
+            Score += _tetrisFE.Size.Y * ScoreUpOnSpriteCleared;
         }
 
 

@@ -28,7 +28,7 @@ namespace TetrisEngine
           
 
             //Shared shape generator for both players
-            var shapeGenerator = new AllShapesGeneratorWithPrediction(3);
+            var shapeGenerator = new ShapesGeneratorWithPrediction(3);
 
             //Creating GameArea for both players
             _tetrisFirstPlayer = new TetrisFE(new Size(16, 8), shapeGenerator);

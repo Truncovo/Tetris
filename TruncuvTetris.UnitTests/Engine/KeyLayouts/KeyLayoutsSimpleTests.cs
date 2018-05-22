@@ -12,14 +12,14 @@ namespace TruncuvTetris.UnitTests.Engine.KeyLayouts
     [TestFixture]
     class KeyLayoutsSimpleTests
     {
-        private Mock<ITetrisControl> _tetrisControl;
+        private Mock<ITetrisFE> _tetrisControl;
 
         private KeyLayoutSimple _keyLayout;
 
         [SetUp]
         public void SetUp()
         {
-            _tetrisControl = new Mock<ITetrisControl>();
+            _tetrisControl = new Mock<ITetrisFE>();
 
             _keyLayout = new KeyLayoutSimple(new Key[6]
             {
