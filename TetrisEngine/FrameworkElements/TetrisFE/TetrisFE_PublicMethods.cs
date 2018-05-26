@@ -28,7 +28,7 @@ namespace TetrisEngine
 
             try
             {
-                while(true)
+                while (true)
                     MoveActualShape(new Coordinates(1, 0));
             }
             catch (Exception)
@@ -112,6 +112,11 @@ namespace TetrisEngine
 
             OnNewGameStarted(this);
             Play();
+        }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            MoveDown();
         }
 
     }

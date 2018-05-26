@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -31,8 +32,8 @@ namespace TetrisEngine
             var shapeGenerator = new ShapesGeneratorWithPrediction(3);
 
             //Creating GameArea for both players
-            _tetrisFirstPlayer = new TetrisFE(new Size(16, 8), shapeGenerator);
-            _tetrisSecondPlayer = new TetrisFE(new Size(16, 8), shapeGenerator);
+            _tetrisFirstPlayer = new TetrisFE(new Size(16, 8), shapeGenerator,TetrisTimers.Basic);
+            _tetrisSecondPlayer = new TetrisFE(new Size(16, 8), shapeGenerator, TetrisTimers.Basic);
 
             //creating score counter for both players
             var scoreFirstPlayer = new ScoreFE(new ScoreCounter(_tetrisFirstPlayer));

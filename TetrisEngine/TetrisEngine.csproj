@@ -53,6 +53,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Timers\TetrisTimer.cs" />
+    <Compile Include="Engine\Timers\TetrisTimers.cs" />
     <Compile Include="FrameworkElements\TetrisFE\ITetrisFE.cs" />
     <Compile Include="WindowSettings\MultiPlayer.cs" />
     <Compile Include="Engine\KeyLayouts\IKeyLayout.cs" />

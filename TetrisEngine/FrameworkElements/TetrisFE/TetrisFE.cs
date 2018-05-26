@@ -14,7 +14,7 @@ namespace TetrisEngine
         //propertyes for handling background colors
         private Brush _bgPlayingBrush;
         public Brush BgPlayingBrush
-        {
+        {   
             get => _bgPlayingBrush;
             set
             {
@@ -40,6 +40,9 @@ namespace TetrisEngine
         private Shape _activeShape;
         private Coordinates _acticeShapeCoordinates;
 
+        private readonly ITetrisTimer _tetrisTimer;
+
+
         private IShapeGenerator _shapeGenerator;
         public IShapeGenerator ShapeGenerator
         {
@@ -52,22 +55,23 @@ namespace TetrisEngine
         }
 
         //konstruktor 
-        public TetrisFE(Size size, IShapeGenerator shapeGenerator)
+        public TetrisFE(Size size, IShapeGenerator shapeGenerator, ITetrisTimer tetrisTimer)
         {
             Size = size;
             ShapeGenerator = shapeGenerator;
+            _tetrisTimer = tetrisTimer;
+
             _bgPlayingBrush = Brushes.Black;
             _gameOverBgBrush = Brushes.DarkRed;
 
-            this.TimerCtor();
-          
+            _tetrisTimer.TetrisTick += OnTimerTick;
+
             //add rows and columns to grid
             for (int i = 0; i < size.Y; i++)
                 this.ColumnDefinitions.Add(new ColumnDefinition{Width = new GridLength(Sprite.Size, GridUnitType.Pixel)});
 
             for (int i = 0; i < size.X; i++)
                 this.RowDefinitions.Add(new RowDefinition {Height = new GridLength(Sprite.Size, GridUnitType.Pixel)});
-
 
             this.ShowGridLines = true;
             this.Background = _bgPlayingBrush;
