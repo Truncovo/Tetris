@@ -37,8 +37,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,6 +65,24 @@
     <Compile Include="Engine\Timers\TetrisTimer.cs" />
     <Compile Include="Engine\Timers\TetrisTimers.cs" />
     <Compile Include="FrameworkElements\TetrisFE\ITetrisFE.cs" />
+    <Compile Include="AzureDatabase\HighScore.cs">
+      <DependentUpon>HighScoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDatabase\HighScoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDatabase\HighScoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDatabase\HighScoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoreModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="WindowSettings\MultiPlayer.cs" />
     <Compile Include="Engine\KeyLayouts\IKeyLayout.cs" />
     <Compile Include="Engine\KeyLayouts\KeyLayouts.cs" />
@@ -88,11 +115,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <Compile Include="Engine\ScoreCounter.cs" />
     <Compile Include="FrameworkElements\ScoreHistoryFE.cs" />
     <Compile Include="Settings.cs" />
@@ -110,6 +132,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="AzureDatabase\HighScoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HighScoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AzureDatabase\HighScoreModel.edmx.diagram">
+      <DependentUpon>HighScoreModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +152,20 @@
       <Name>WindowsAndInput</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AzureDatabase\HighScoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HighScoreModel.edmx</DependentUpon>
+      <LastGenOutput>HighScoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AzureDatabase\HighScoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HighScoreModel.edmx</DependentUpon>
+      <LastGenOutput>HighScoreModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
